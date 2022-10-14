@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Prisma 2+ generator to emit typescript models of your database with nestjs dto",
   "repository": "https://github.com/huy97/prisma-nestjs-dto-generator",
+  "main": "dist/generator.js",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "prisma-nestjs-dto-generator": "dist/generator.js"
   },
