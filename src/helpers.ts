@@ -27,7 +27,7 @@ export const generateModelsIndexFile = (
       .sort()
       .map<OptionalKind<ExportDeclarationStructure>>((modelName) => {
         let moduleSpecifier = `./${modelName}${
-          config.modelFileNameSuffix || 'model'
+          config.modelFileNameSuffix || '.model'
         }`;
 
         if (config.toLowerCase) {
@@ -61,7 +61,7 @@ export const generateDtosIndexFile = (
       .sort()
       .map<OptionalKind<ImportDeclarationStructure>>((modelName) => {
         let moduleSpecifier = `./${modelName}${
-          config.dtoFileNameSuffix || 'dto'
+          config.dtoFileNameSuffix || '.dto'
         }`;
 
         if (config.toLowerCase) {
@@ -82,7 +82,7 @@ export const generateDtosIndexFile = (
       .sort()
       .map<OptionalKind<ExportDeclarationStructure>>((modelName) => {
         let moduleSpecifier = `./${modelName}${
-          config.dtoFileNameSuffix || 'dto'
+          config.dtoFileNameSuffix || '.dto'
         }`;
 
         if (config.toLowerCase) {
