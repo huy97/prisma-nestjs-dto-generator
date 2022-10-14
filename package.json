@@ -1,0 +1,50 @@
+{
+  "name": "prisma-nestjs-dto-generator",
+  "version": "0.1.0",
+  "description": "Prisma 2+ generator to emit typescript models of your database with nestjs dto",
+  "repository": "https://github.com/huy97/prisma-nestjs-dto-generator",
+  "bin": {
+    "prisma-nestjs-dto-generator": "dist/generator.js"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsc && npx prisma generate"
+  },
+  "author": {
+    "name": "Huy Le",
+    "url": "https://github.com/huy97"
+  },
+  "keywords": [
+    "prisma",
+    "prisma-client",
+    "prisma-schema",
+    "nestjs prisma",
+    "prisma-generator",
+    "prisma-nestjs-dto-generator",
+    "nestjs dto",
+    "nestjs dto swagger"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^4.0.0",
+    "@prisma/generator-helper": "^4.0.0",
+    "@prisma/internals": "^4.0.0",
+    "class-validator": "^0.13.2",
+    "pluralize": "^8.0.0",
+    "prettier": "^2.7.1",
+    "ts-morph": "^15.1.0",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "@types/pluralize": "0.0.29",
+    "@types/prettier": "^2.6.3",
+    "prisma": "^4.0.0",
+    "typescript": "^4.7.4",
+    "rimraf": "3.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/huy97/prisma-nestjs-dto-generator/issues"
+  },
+  "homepage": "https://github.com/huy97/prisma-nestjs-dto-generator#readme"
+}
