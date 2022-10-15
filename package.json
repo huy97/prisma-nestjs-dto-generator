@@ -12,7 +12,8 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsc && npx prisma generate"
+    "build": "tsc && npx prisma generate",
+    "publish": "npm run build && npm version patch && npm publish"
   },
   "author": {
     "name": "Huy Le",
