@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/prisma-nestjs-dto-generator.svg)](https://badge.fury.io/js/prisma-nestjs-dto-generator)
 [![npm](https://img.shields.io/npm/dt/prisma-nestjs-dto-generator.svg)](https://www.npmjs.com/package/prisma-nestjs-dto-generator)
-[![HitCount](https://hits.dwyl.com/omar-dulaimi/prisma-nestjs-dto-generator.svg?style=flat)](http://hits.dwyl.com/omar-dulaimi/prisma-nestjs-dto-generator)
+[![HitCount](https://hits.dwyl.com/huy97/prisma-nestjs-dto-generator.svg?style=flat)](http://hits.dwyl.com/huy97/prisma-nestjs-dto-generator)
 [![npm](https://img.shields.io/npm/l/prisma-nestjs-dto-generator.svg)](LICENSE)
 
 Automatically generate typescript models of your database with class validator validations ready, from your [Prisma](https://github.com/prisma/prisma) Schema. Updates every time `npx prisma generate` runs.
