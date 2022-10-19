@@ -1325,6 +1325,20 @@ prettier@^2.7.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
   integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
+prisma-nestjs-dto-generator@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/prisma-nestjs-dto-generator/-/prisma-nestjs-dto-generator-0.1.7.tgz#3380cb60fae63e3feb45210af28555d4942928c2"
+  integrity sha512-uDE60ZxOUu2MFtXoPVgfhNQRbms/8v4oB58gX1isMzDeSmnEJ3cLGy6nLZ9z+E3YmJa4PoBBUFq8xusSmoGARg==
+  dependencies:
+    "@prisma/client" "^4.0.0"
+    "@prisma/generator-helper" "^4.0.0"
+    "@prisma/internals" "^4.0.0"
+    class-validator "^0.13.2"
+    pluralize "^8.0.0"
+    prettier "^2.7.1"
+    ts-morph "^15.1.0"
+    tslib "^2.4.0"
+
 prisma@^4.0.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.4.0.tgz#0c53324bf6a29474636b3e1964e0d72e0277bf8f"

@@ -3,7 +3,7 @@ generator client {
 }
 
 generator nestjs_dto_generator {
-  provider = "node ./dist/generator.js"
+  provider = "prisma-nestjs-dto-generator"
   enableModel = true // default: true
   modelFileNameSuffix = ".model" // default: ".model"
   modelClassNameSuffix = "Model" // default: "Model"
