@@ -1,9 +1,9 @@
 {
   "name": "prisma-nestjs-dto-generator",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Prisma 2+ generator to emit typescript models of your database with nestjs dto",
   "repository": "https://github.com/huy97/prisma-nestjs-dto-generator",
-  "main": "dist/generator.js",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -11,9 +11,9 @@
     "prisma-nestjs-dto-generator": "dist/generator.js"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf dist && npm run format",
     "build": "tsc && npx prisma generate",
-    "publish": "npm run build && npm version patch && npm publish"
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "author": {
     "name": "Huy Le",
@@ -45,8 +45,8 @@
     "@types/pluralize": "0.0.29",
     "@types/prettier": "^2.6.3",
     "prisma": "^4.0.0",
-    "typescript": "^4.7.4",
-    "rimraf": "3.0.2"
+    "rimraf": "3.0.2",
+    "typescript": "^4.7.4"
   },
   "bugs": {
     "url": "https://github.com/huy97/prisma-nestjs-dto-generator/issues"
