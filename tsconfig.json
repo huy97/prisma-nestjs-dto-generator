@@ -8,7 +8,7 @@
     "noImplicitAny": true,
     "moduleResolution": "node",
     "declaration": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "resolveJsonModule": true,
     "outDir": "./dist",
     "rootDir": "./src",
