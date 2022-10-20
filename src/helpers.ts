@@ -96,16 +96,17 @@ export const generateDtosIndexFile = (
       }),
   );
 
-  modelsBarrelExportSourceFile.addStatements(/* ts */ `
-    export const extraModels = [
+  modelsBarrelExportSourceFile.addStatements(
+    /* ts */
+    `export const extraModels = [
       ${prismaClientDmmf.datamodel.models
         .map((model) => model.name)
         .sort()
         .map<String>(
           (modelName) => modelName + `${config.dtoClassNameSuffix || 'Dto'}`,
         )}
-    ]
-  `);
+    ];`,
+  );
 };
 
 export const shouldImportPrisma = (fields: PrismaDMMF.Field[]) => {
@@ -218,6 +219,8 @@ export const getDecoratorsByFieldType = (
 
     if (field.isRequired) {
       swaggerArguments.push(`required: true`);
+    } else {
+      swaggerArguments.push(`required: false`);
     }
 
     if (field.relationName) {
