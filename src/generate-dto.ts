@@ -21,14 +21,13 @@ export default async function generateDtos(
   config: Dictionary<string>,
 ) {
   const dirPath = path.resolve(outputDir, 'dtos');
-  let filePath = path.resolve(
-    dirPath,
-    `${model.name}${config.dtoFileNameSuffix || '.dto'}.ts`,
-  );
+  let fileName = `${model.name}${config.dtoFileNameSuffix || '.dto'}.ts`;
 
   if (config.toLowerCase) {
-    filePath = filePath.toLowerCase();
+    fileName = fileName.toLowerCase();
   }
+
+  let filePath = path.resolve(dirPath, fileName);
 
   const sourceFile = project.createSourceFile(filePath, undefined, {
     overwrite: true,

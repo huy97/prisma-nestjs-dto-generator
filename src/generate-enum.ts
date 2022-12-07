@@ -9,11 +9,12 @@ export default function generateEnum(
   config: Dictionary<string | boolean>,
 ) {
   const dirPath = path.resolve(outputDir, 'enums');
-  let filePath = path.resolve(dirPath, `${enumItem.name}.enum.ts`);
+  let fileName = `${enumItem.name}.enum.ts`;
 
   if (config.toLowerCase) {
-    filePath = filePath.toLowerCase();
+    fileName = fileName.toLowerCase();
   }
+  let filePath = path.resolve(dirPath, fileName);
 
   const sourceFile = project.createSourceFile(filePath, undefined, {
     overwrite: true,

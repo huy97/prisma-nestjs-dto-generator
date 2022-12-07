@@ -20,14 +20,13 @@ export default async function generateClass(
   config: Dictionary<string>,
 ) {
   const dirPath = path.resolve(outputDir, 'models');
-  let filePath = path.resolve(
-    dirPath,
-    `${model.name}${config.modelFileNameSuffix || '.model'}.ts`,
-  );
+  let fileName = `${model.name}${config.modelFileNameSuffix || '.model'}.ts`;
 
   if (config.toLowerCase) {
-    filePath = filePath.toLowerCase();
+    fileName = fileName.toLowerCase();
   }
+
+  let filePath = path.resolve(dirPath, fileName);
 
   const sourceFile = project.createSourceFile(filePath, undefined, {
     overwrite: true,
