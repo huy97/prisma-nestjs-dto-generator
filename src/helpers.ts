@@ -99,18 +99,21 @@ export const generateDtosIndexFile = (
   modelsBarrelExportSourceFile.addStatements(
     /* ts */
     `export const extraModels = [
-      ${prismaClientDmmf.datamodel.models
-        .map((model) => model.name)
-        .sort()
-        .map<String>(
-          (modelName) => modelName + `${config.dtoClassNameSuffix || 'Dto'}`,
-        )}
-    ];`,
+  ${prismaClientDmmf.datamodel.models
+    .map((model) => model.name)
+    .sort()
+    .map<String>(
+      (modelName) => modelName + `${config.dtoClassNameSuffix || 'Dto'}`,
+    )}
+];`,
   );
 };
 
 export const shouldImportPrisma = (fields: PrismaDMMF.Field[]) => {
-  return fields.some((field) => ['Decimal', 'Json'].includes(field.type));
+  return fields.some(
+    (field) =>
+      ['Decimal', 'Json'].includes(field.type) || field.kind !== 'scalar',
+  );
 };
 
 export const shouldImportHelpers = (fields: PrismaDMMF.Field[]) => {
@@ -291,10 +294,18 @@ export const generateNestSwaggerImport = (
   });
 };
 
-export const generatePrismaImport = (sourceFile: SourceFile) => {
+export const generatePrismaImport = (
+  sourceFile: SourceFile,
+  fields: PrismaDMMF.Field[],
+  types: string[],
+) => {
+  const additionalImports: string[] = fields
+    .filter((field) => field.kind !== 'scalar' && types.includes(field.type))
+    .map((field) => field.type);
+
   sourceFile.addImportDeclaration({
     moduleSpecifier: '@prisma/client',
-    namedImports: ['Prisma'],
+    namedImports: ['Prisma', ...additionalImports],
   });
 };
 

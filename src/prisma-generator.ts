@@ -47,16 +47,18 @@ export async function generate(options: GeneratorOptions) {
     generateEnumsIndexFile(enumsIndexSourceFile, [...enumNames], config);
   }
 
+  const types = prismaClientDmmf.datamodel.types.map((type) => type.name);
+
   if (enableModel) {
     prismaClientDmmf.datamodel.models.forEach((model) =>
-      generateClass(project, outputDir, model, config),
+      generateClass(project, outputDir, model, config, types),
     );
     generateModelsIndexFile(prismaClientDmmf, project, outputDir, config);
   }
 
   if (enableSwagger) {
     prismaClientDmmf.datamodel.models.forEach((model) =>
-      generateDtos(project, outputDir, model, config),
+      generateDtos(project, outputDir, model, config, types),
     );
     generateDtosIndexFile(prismaClientDmmf, project, outputDir, config);
   }

@@ -19,6 +19,7 @@ export default async function generateDtos(
   outputDir: string,
   model: PrismaDMMF.Model,
   config: Dictionary<string>,
+  types?: string[],
 ) {
   const dirPath = path.resolve(outputDir, 'dtos');
   let fileName = `${model.name}${config.dtoFileNameSuffix || '.dto'}.ts`;
@@ -42,7 +43,7 @@ export default async function generateDtos(
   ];
 
   if (shouldImportPrisma(model.fields)) {
-    generatePrismaImport(sourceFile);
+    generatePrismaImport(sourceFile, model.fields, types);
   }
 
   if (config.enableSwagger) {

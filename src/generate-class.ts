@@ -18,6 +18,7 @@ export default async function generateClass(
   outputDir: string,
   model: PrismaDMMF.Model,
   config: Dictionary<string>,
+  types?: string[],
 ) {
   const dirPath = path.resolve(outputDir, 'models');
   let fileName = `${model.name}${config.modelFileNameSuffix || '.model'}.ts`;
@@ -41,7 +42,7 @@ export default async function generateClass(
   ];
 
   if (shouldImportPrisma(model.fields)) {
-    generatePrismaImport(sourceFile);
+    generatePrismaImport(sourceFile, model.fields, types);
   }
 
   generateClassValidatorImport(sourceFile, validatorImports as Array<string>);
